@@ -176,6 +176,7 @@ module.exports = (env, argv) => ({
 				}),
 				new CopyWebpackPlugin([
 					{ from: 'src/images', to: 'images' },
+					{ from: 'src/admin', to: 'admin' }
 				]),
 				new UglifyJSPlugin({
 					exclude: 'vendors',
@@ -198,6 +199,7 @@ module.exports = (env, argv) => ({
 				}),
 				new CopyWebpackPlugin([
 					{ from: 'src/images', to: 'images' },
+					{ from: 'src/admin', to: 'admin' }
 				]),
 				new WriteFileWebpackPlugin()
 			]
