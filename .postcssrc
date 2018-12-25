@@ -1,0 +1,10 @@
+{
+  "modules": false,
+  "plugins": {
+    "autoprefixer": {
+      "grid": true,
+       "browsers": ["last 1 version"]
+    }
+  }
+}
+
