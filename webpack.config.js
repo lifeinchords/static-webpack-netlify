@@ -61,25 +61,25 @@ module.exports = (env, argv) => ({
 							ie, sass -> postcss -> css
 						*/
 						use: [
-						  {
-							loader: 'css-loader'
-						  }, 
-						  {
-							loader: 'postcss-loader',
-							options: {
-							  ident: 'postcss',
-							  plugins: (loader) => [
-								require('autoprefixer')(),
-								require('postcss-flexbugs-fixes')()
-							  ]
+							{
+								loader: 'css-loader'
+							},
+							{
+								loader: 'postcss-loader',
+								options: {
+									ident: 'postcss',
+										plugins: (loader) => [
+										require('autoprefixer')(),
+										require('postcss-flexbugs-fixes')()
+									]
+								}
+							},
+							{
+								loader: 'sass-loader'
 							}
-						  },
-						  {
-							loader: 'sass-loader'
-						  }
 						]
-					}) 
-					: 
+					})
+					:
 					[
 						{
 							loader: 'style-loader',
@@ -101,7 +101,7 @@ module.exports = (env, argv) => ({
 								plugins: (loader) => [
 									require('autoprefixer')(),
 									require('postcss-flexbugs-fixes')()
-							  ]
+								]
 							}
 						},
 						{
@@ -124,8 +124,8 @@ module.exports = (env, argv) => ({
 								presets: ['@babel/preset-env']
 							}
 						}
-					] 
-					: 
+					]
+					:
 					[
 						{
 							loader: 'babel-loader',
@@ -170,20 +170,20 @@ module.exports = (env, argv) => ({
 					// filename: path.join(__dirname, 'dist', 'app.dist.css')
 					filename: 'app.dist.css'
 				}),
-                new HtmlWebpackPlugin({
-                        template: './src/index.html',
-                        inject: 'body'
-                }),
-			    new CopyWebpackPlugin([
-			        { from: 'src/images', to: 'images' },
-			    ]),
+				new HtmlWebpackPlugin({
+						template: './src/index.html',
+						inject: 'body'
+				}),
+				new CopyWebpackPlugin([
+					{ from: 'src/images', to: 'images' },
+				]),
 				new UglifyJSPlugin({
 					exclude: 'vendors',
 					uglifyOptions: {
 						parallel: true,
 						safari10: true
 					}
-				})                
+				})
 			]
 			:
 			// dev
@@ -192,13 +192,13 @@ module.exports = (env, argv) => ({
 				new webpack.HotModuleReplacementPlugin(),
 				new webpack.NamedModulesPlugin(),
 				new webpack.ProgressPlugin({ profile: false }),
-                new HtmlWebpackPlugin({
-                        template: './src/index.html',
-                        inject: 'body'
-                }),
-			    new CopyWebpackPlugin([
-			        { from: 'src/images', to: 'images' },
-			    ]),
+				new HtmlWebpackPlugin({
+						template: './src/index.html',
+						inject: 'body'
+				}),
+				new CopyWebpackPlugin([
+					{ from: 'src/images', to: 'images' },
+				]),
 				new WriteFileWebpackPlugin()
 			]
 });
