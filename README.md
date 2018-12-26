@@ -11,3 +11,4 @@ Following https://www.netlifycms.org/docs/add-to-your-site/ to set up Netlify.
 - npm script to process images, output responsive versions
 - set up SSL
 - set up custom domain
+- 
